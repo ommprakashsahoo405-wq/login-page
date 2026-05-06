@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Model | Javascript</title>
+</head>
+
+<body>
+
+    <h1 id="heading1">Welcome to the world of Javascript</h1>
+    <h1 id="heading2">Welcome to the world of Javascript</h1>
+
+    <div id="container">
+
+    </div>
+    <button onclick="addImg()">Add Image</button>
+    <button onclick="resizeImg()">Resize</button>
+    <button onclick="deleteImg()">Delete</button>
+
+    <input type="file" id="image_upload" style="display: none;">
+
+    <script>
+        let h1 = document.querySelectorAll("h1")
+        h1[0].style.color = "red"
+        h1[0].style.wordSpacing = "5px"
+        h1[0].style.textDecoration = "underline"
+        h1[0].style.textDecorationLine = "line"
+
+        let img, btn
+
+        function addImg() {
+            img = document.createElement("img")
+            img.src = "login.png"
+            document.getElementById("container").appendChild(img)
+
+            btn = document.getElementById("image_upload")
+            btn.trigger()
+
+            if (btn.files && btn.files[0]) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    // Updates the clicked image with the new selection
+                    document.getElementById('triggerImg').src = e.target.result;
+                };
+
+                reader.readAsDataURL(btn.files[0]);
+            }
+        }
+
+        function resizeImg() {
+            if (img) {
+                img.style.width = "300px"
+                img.style.height = "200px"
+            }
+        }
+
+        function deleteImg() {
+            if (img) {
+                img.remove()
+                img = null
+            }
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

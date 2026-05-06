@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Math Functions in JS</title>
+</head>
+<body>
+
+    <h2>JavaScript Math Functions Demo</h2>
+
+    <script>
+        let num = 25.67;
+        let num2 = -10;
+
+        document.write("<h3>Original Number: " + num + "</h3>");
+
+        // Basic Functions
+        document.write("Math.round(): " + Math.round(num) + "<br>");
+        document.write("Math.floor(): " + Math.floor(num) + "<br>");
+        document.write("Math.ceil(): " + Math.ceil(num) + "<br>");
+        document.write("Math.trunc(): " + Math.trunc(num) + "<br>");
+
+        // Power & Root
+        document.write("Math.pow(2,3): " + Math.pow(2,3) + "<br>");
+        document.write("Math.sqrt(25): " + Math.sqrt(25) + "<br>");
+        document.write("Math.cbrt(27): " + Math.cbrt(27) + "<br>");
+
+        // Absolute & Sign
+        document.write("Math.abs(-10): " + Math.abs(num2) + "<br>");
+        document.write("Math.sign(-10): " + Math.sign(num2) + "<br>");
+
+        // Min & Max
+        document.write("Math.min(5,2,9): " + Math.min(5,2,9) + "<br>");
+        document.write("Math.max(5,2,9): " + Math.max(5,2,9) + "<br>");
+
+        // Random Numbers
+        document.write("Math.random(): " + Math.random() + "<br>");
+        document.write("Random (1-10): " + (Math.floor(Math.random() * 10) + 1) + "<br>");
+    </script>
+
+</body>
+</html>

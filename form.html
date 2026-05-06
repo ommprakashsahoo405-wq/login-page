@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Project</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+
+<form onsubmit="return handleSubmit()">
+
+    Name: <input type="text" id="name"><br><br>
+    Email: <input type="text" id="email"><br><br>
+    Age: <input type="text" id="age"><br><br>
+
+    Skills:<br>
+    <input type="checkbox" name="skills" value="HTML"> HTML<br>
+    <input type="checkbox" name="skills" value="CSS"> CSS<br>
+    <input type="checkbox" name="skills" value="JavaScript"> JavaScript<br><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+<h3>Submitted Data</h3>
+
+<table id="dataTable">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Age</th>
+        <th>Skills</th>
+    </tr>
+</table>
+
+<script>
+function handleSubmit() {
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let age = document.getElementById("age").value.trim();
+
+    // Email regex validation
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Validation
+    if (name === "") {
+        alert("Name is required");
+        return false;
+    }
+
+    if (!emailPattern.test(email)) {
+        alert("Invalid email format");
+        return false;
+    }
+
+    if (isNaN(age) || age === "") {
+        alert("Age must be a number");
+        return false;
+    }
+
+    // Get selected skills
+    let skillElements = document.querySelectorAll('input[name="skills"]:checked');
+    let skills = [];
+
+    skillElements.forEach(function(skill) {
+        skills.push(skill.value);
+    });
+
+    if (skills.length === 0) {
+        alert("Select at least one skill");
+        return false;
+    }
+
+    // Add data to table
+    let table = document.getElementById("dataTable");
+    let row = table.insertRow();
+
+    row.insertCell(0).textContent = name;
+    row.insertCell(1).textContent = email;
+    row.insertCell(2).textContent = age;
+    row.insertCell(3).textContent = skills.join(", ");
+
+    // Clear form
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("age").value = "";
+    
+    document.querySelectorAll('input[name="skills"]').forEach(function(cb) {
+        cb.checked = false;
+    });
+
+    return false; // prevent actual submission
+}
+</script>
+
+</body>
+</html>

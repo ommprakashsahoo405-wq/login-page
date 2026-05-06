@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling in JS</title>
+</head>
+<body onload="pageLoaded()">
+
+<h2 onmouseover="hoverTitle(this)" onmouseout="onmouseoutTitle(this)">
+    Parul Student Registration Form
+</h2>
+
+<script>
+    // onload event
+    function pageLoaded() {
+        alert("Welcome to the Event Handling Demo! Page loaded successfully");
+    }
+
+    function hoverTitle(element) {
+        element.style.color = "blue";
+        element.style.fontWeight = "bold";
+    }
+
+    function onmouseoutTitle(element) {
+        element.style.color = "";
+        element.style.fontWeight = "";
+    }
+</script>
+
+<!--
+//Feature                     Concept
+Page load alert             onload event
+Input Highlights            onfocus and onblur events
+Live typing check           onkeyup
+Restrict input to numbers   onkeypress
+Dropdown change alert       onchange
+Button click alert          onclick always written in input tag
+Hover effect                onmouseover and onmouseout
+Form validation & submit    onsubmit
+-->
+
+</body>
+</html>

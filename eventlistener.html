@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button id="btn">Click Me</button>
+
+<script>
+let btn = document.getElementById("btn");
+
+btn.addEventListener("click", function() {
+    console.log("First event");
+});
+
+btn.addEventListener("click", function() {
+    console.log("Second event");
+});
+</script>
+
+</body>
+</html>

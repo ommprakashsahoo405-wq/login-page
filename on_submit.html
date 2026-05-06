@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+</head>
+<body>
+    <hr>
+    <center>
+    <h1><tt>WELCOME TO Parul LOGIN</tt></h1>
+    </center>
+    <hr>
+    <br>
+    <fieldset>
+        <legend>DOM</legend>
+        <center>
+            <table border="3">
+                <form action="" onsubmit="return Test_Case1()" method="post">
+                <tr>
+                    <td><label for="">User_Name</label></td>
+                    <td><input type="text" placeholder="user_name" id="A" autocomplete="off"></td>
+                </tr>
+                <tr>
+                    <td><label for="">Password</label></td>
+                    <td><input type="password" placeholder="password" id="B" autocomplete="off"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="LOGIN"></td>
+                </tr>
+            </form>
+            </table>
+    
+        </center>
+    </fieldset>
+
+    <script>
+        function Test_Case1()
+        {
+            var username=document.getElementById("A").value 
+            var password=document.getElementById("B").value 
+            if(username==""||username==null)
+            {
+                window.alert("Dear customer please enter the username")
+                return false
+            }
+            else if(password==""||password==null)
+            {
+                window.alert("Dear customer please enter the password")
+                return false
+            }
+        }
+  
+    </script>
+
+</body>
+</html>
+
+
+Ex2:
+===
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <style>
+        span 
+        {
+            color:brown;
+        }
+    </style>
+</head>
+<body>
+    <hr>
+    <center>
+    <h1><tt>WELCOME TO IHUB LOGIN</tt></h1>
+    </center>
+    <hr>
+    <br>
+    <fieldset>
+        <legend>DOM</legend>
+        <center>
+            <table border="3">
+                <form action="" onsubmit="return Test_Case1()" method="post">
+                <tr>
+                    <td><label for="">User_Name</label></td>
+                    <td><input type="text" placeholder="user_name" id="A" autocomplete="off"></td>
+                    <td><span id="AAA"></span></td>
+                </tr>
+                <tr>
+                    <td><label for="">Password</label></td>
+                    <td><input type="password" placeholder="password" id="B" autocomplete="off"></td>
+                    <td><span id="BBB"></span></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="LOGIN"></td>
+                </tr>
+            </form>
+            </table>
+    
+        </center>
+    </fieldset>
+
+    <script>
+        function Test_Case1()
+        {
+            var username=document.getElementById("A").value 
+            var password=document.getElementById("B").value 
+          if(username==""||username==null)
+          {
+            window.alert('***User_Name is required****')
+            document.getElementById('AAA').innerHTML="***username is required***"
+            return false
+          }
+          else if(password==""||password==null)
+          {
+            window.alert("***Password is required***")
+            document.getElementById("BBB").innerHTML="***password is required***"
+            return false
+          }
+        }
+  
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List - Course Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS STYLES */
+        body {
+            background: linear-gradient(135deg, #a8e063, #56ab2f);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header {
+            color: white;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header i {
+            font-size: 2rem;
+        }
+/* Input Form */
+        .add-todo-form {
+            display: flex;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 5px;
+            border-radius: 50px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .add-todo-form input {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 1rem;
+        }
+
+        .add-todo-form button {
+            padding: 10px 25px;
+            border-radius: 50px;
+            border: none;
+            background: #f8f9fa;
+            cursor: pointer;
+            font-weight: 600;
+            color: #555;
+            transition: background 0.3s;
+        }
+
+        .add-todo-form button:hover {
+            background: #e2e6ea;
+        }
+
+        /* Todo List Items */
+        .todos {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .todo-item {
+            background: rgba(255, 255, 255, 0.85);
+            margin-bottom: 12px;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+
+        .todo-item:hover {
+            transform: scale(1.02);
+        }
+
+        .todo-item span {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .icons i {
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: opacity 0.2s;
+        }
+
+        .icons i:hover {
+            opacity: 0.7;
+}
+
+        .fa-circle-check { color: #000; }
+        .fa-trash-can { color: #000; }
+
+        /* Logic Styles */
+        .completed span {
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <i class="fa-regular fa-calendar-check"></i>
+            <h1>Todo List</h1>
+        </header>
+
+        <form class="add-todo-form">
+            <input type="text" name="add" placeholder="Todo S" autocomplete="off">
+            <button type="submit">submit</button>
+        </form>
+
+        <ul class="todos">
+            <li class="todo-item">
+                <span>Todo 1</span>
+                <div class="icons">
+                    <i class="fa-regular fa-circle-check tick"></i>
+                    <i class="fa-solid fa-trash-can delete"></i>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        // JAVASCRIPT LOGIC
+        const addForm = document.querySelector('.add-todo-form');
+        const list = document.querySelector('.todos');
+
+        // Function to create HTML template for a new task
+        const generateTemplate = (todo) => {
+            const html = `
+                <li class="todo-item">
+                    <span>${todo}</span>
+                    <div class="icons">
+                        <i class="fa-regular fa-circle-check tick"></i>
+                        <i class="fa-solid fa-trash-can delete"></i>
+                    </div>
+                </li>
+            `;
+            list.innerHTML += html;
+        };
+
+        // 1. Add Todos
+        addForm.addEventListener('submit', e => {
+            e.preventDefault();
+            const todo = addForm.add.value.trim();
+
+            if(todo.length) {
+                generateTemplate(todo);
+                addForm.reset();
+            }
+        });
+
+        // 2. Delete and Complete (using Event Bubbling)
+        list.addEventListener('click', e => {
+            
+            // Delete logic
+            if(e.target.classList.contains('delete')) {
+                // Remove the parent <li> of the icon
+                e.target.parentElement.parentElement.remove();
+            }
+
+            // Complete logic
+            if(e.target.classList.contains('tick')) {
+                // Toggle a completed class on the <li>
+                e.target.parentElement.parentElement.classList.toggle('completed');
+            }
+        });
+    </script>
+</body>
+</html>

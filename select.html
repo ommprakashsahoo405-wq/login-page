@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <style>
+        span 
+        {
+            color:brown;
+        }
+    </style>
+</head>
+<body>
+    <hr>
+    <center>
+
+    <h1><tt>Select  Validtion in JavaScript</tt></h1>
+    </center>
+    <hr>
+    <br>
+    <fieldset>
+        <legend>SELECT_VALIDATION</legend>
+        <center>
+            <table border="3">
+                <form action="" onsubmit="return Test_Case1()" method="post">
+                    <table border="3">
+                        <tr>
+                            <td><label for="">CITY-STATE-COUNTRY</label></td>
+                            <td>
+                                <select name="" id="A">
+                                    <option value="">--City--</option>
+                                    <option value="">Hyderabad</option>
+                                    <option value="">Banguluru</option>
+                                    <option value="">Chennai</option>
+                                    <option value="">Mumbai</option>
+
+
+                                
+                                </select>
+                                <select name="" id="B">
+                                    <option value="">--State--</option>
+                                    <option value="">TS</option>
+                                    <option value="">KA</option>
+                                    <option value="">TN</option>
+                                    <option value="">MH</option>
+
+                                </select>
+                                <select name="" id="C">
+                                    <option value="">--Country--</option>
+                                    <option value="">India</option>
+                                    <option value="">USA</option>
+                                    <option value="">UK</option>
+                                    <option value="">Australia</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" value="SUBMIT">
+                               <input type="reset" value="RESER">
+                            </td>
+                        </tr>
+
+                    </table>
+               
+                </form>
+
+
+            </table>
+        </center>
+        <br>
+        <hr>
+        <center>
+            <span id="AAA"></span>
+        </center>
+        <hr>
+    </fieldset>
+
+    <script>
+        function Test_Case1() 
+        {
+            var select1=document.getElementById('A')
+            var select2=document.getElementById('B')
+            var select3=document.getElementById('C')
+            if(select1.selectedIndex=="")
+            {
+                window.alert("City is required")
+                document.getElementById("AAA").innerHTML="*** CITY IS REQUIRED  ***"
+                return false
+            }
+            else if(select2.selectedIndex=="")
+            {
+                window.alert("State is required")
+                document.getElementById("AAA").innerHTML="*** STATE IS REQUIRED  ***"
+                return false
+            }
+            else if(select3.selectedIndex=="")
+            {
+                window.alert("Country is required")
+                document.getElementById("AAA").innerHTML="*** COUNTRY IS REQUIRED  ***"
+                return false
+            }
+        }
+
+    </script>
+    
+</body>
+</html>

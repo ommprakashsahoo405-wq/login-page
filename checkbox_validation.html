@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <style>
+        span 
+        {
+            color:brown;
+        }
+    </style>
+</head>
+<body>
+    <hr>
+    <center>
+
+    <h1><tt>CheckBox  Validtion in JavaScript</tt></h1>
+    </center>
+    <hr>
+    <br>
+    <fieldset>
+        <legend>Radio_Button</legend>
+        <center>
+            <table border="3">
+                <form action="" onsubmit="return Test_Case1()" method="post">
+                    <tr>
+                        <td><label for="">Language</label></td>
+                        <td><input type="checkbox" name="language" value="Engleish">
+                            <label for="">ENGLISH</label>
+                            <input type="checkbox" name="language" value="Telugu">
+                            <label for="">TELUGU</label>
+                            <input type="checkbox" name="language" value="Hindi">
+                            <label for="">HINDI</label>
+                        
+                        </td>
+                        <td><span id="QQQ"></span></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="SUBMIT">
+                            <input type="reset" value="RESET">
+                        
+                        </td>
+                    </tr>
+                </form>
+
+
+            </table>
+        </center>
+    </fieldset>
+
+    <script>
+        function Test_Case1() 
+        {
+            var mygender=document.getElementsByName("language")
+            if(mygender[0].checked==false && mygender[1].checked==false && mygender[2].checked==false)
+            {
+                window.alert("Dear Customer please select atleast one language")
+                document.getElementById("QQQ").innerHTML="*** Select at least one language ***"
+                return false
+            }
+        }
+    </script>
+    
+</body>
+</html>
